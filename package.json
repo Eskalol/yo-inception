@@ -1,0 +1,60 @@
+{
+  "name": "yo-inception",
+  "version": "1.0.0",
+  "description": "Test library to run commands on generated code within a yeoman generator.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "babel-watch src",
+    "lint": "eslint src/*.js",
+    "lint:fix": "eslint --fix src/*.js",
+    "build": "babel src -d dist",
+    "mocha": "mocha test/**/*.js --compilers js:babel-core/register -R spec --timeout 5000",
+    "test": "npm run build && npm run mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eskalol/yo-inception.git"
+  },
+  "keywords": [
+    "yo",
+    "yeoman",
+    "mem-fs",
+    "mem-fs-editor",
+    "yeoman-test"
+  ],
+  "author": "Eskil Opdahl Nordland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Eskalol/yo-inception/issues"
+  },
+  "homepage": "https://github.com/Eskalol/yo-inception#readme",
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-watch": "^2.0.6",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "mem-fs": "^1.1.3",
+    "mem-fs-editor": "^3.0.2",
+    "vinyl": "^2.1.0"
+  }
+}

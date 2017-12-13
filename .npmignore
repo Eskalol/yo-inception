@@ -1,0 +1,11 @@
+.travis.yml
+test
+src
+.gitignore
+.yo-rc.json
+.editorconfig
+.eslintignore
+.gitattributes
+.nyc_output
+gulpfile.js
+appveyor.yml
