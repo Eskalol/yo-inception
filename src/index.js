@@ -36,6 +36,16 @@ export default class Inception {
     });
   }
 
+  symlinkNodeModulesAsync(path) {
+    return new Promise((resolve, reject) => {
+      if (!fs.existsSync(`${this.path}/node_modules`)) {
+        return reject();
+      }
+
+      return resolve();
+    });
+  }
+
   npmInstall(silent = true) {
     return this.runAsyncCommand('npm install', { cwd: this.path }, silent);
   }
