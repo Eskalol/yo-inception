@@ -2,7 +2,6 @@ import memFs from 'mem-fs';
 import FileEditor from 'mem-fs-editor';
 import fs from 'fs-extra';
 import { exec } from 'child_process';
-import File from 'vinyl';
 
 
 export default class Inception {
@@ -25,6 +24,7 @@ export default class Inception {
     }
   }
 
+  // eslint-disable-next-line class-methods-use-this
   symlinkAsync(target, path) {
     return new Promise((resolve, reject) => {
       fs.symlink(target, path, (err) => {
@@ -44,11 +44,12 @@ export default class Inception {
     return this.runAsyncCommand('yarn install', { cwd: this.path }, silent);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   runAsyncCommand(command, opt = {}, silent = true, maxBuffer = 1024 * 500) {
     return new Promise((resolve, reject) => {
       exec(command, { maxBuffer, ...opt }, (err, stdout, stderr) => {
         if (!silent) {
-          console.log(stdout, stderr);
+          console.log(stdout, stderr); // eslint-disable-line no-console
         }
         if (err) {
           return reject(err);
