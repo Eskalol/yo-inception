@@ -7,9 +7,9 @@ chai.use(require('chai-as-promised'));
 describe('npm install', () => {
   let inception;
   before(done => {
-    inception = new Inception();
+    inception = new Inception(path.join(__dirname, 'fixtures'));
     inception.copyPackageJson(
-      path.join(__dirname, 'fixtures/_package.json'),
+      path.join(__dirname, '_package.json'),
       path.join(__dirname, 'fixtures/package.json'), {
         name: 'super-cool-name',
         author: 'a really cool author',
@@ -17,9 +17,7 @@ describe('npm install', () => {
         express: true
       }
     );
-    inception.npmInstall(
-      path.join(__dirname, 'fixtures/'),
-      true)
+    inception.npmInstall(false)
       .then(done)
       .catch(err => {
         console.log(err);
@@ -33,6 +31,6 @@ describe('npm install', () => {
   });
 
   after(() => {
-    inception.cleanFixtures(__dirname, 'fixtures/node_modules');
+    inception.clean();
   });
 });

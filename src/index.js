@@ -1,13 +1,17 @@
 import memFs from 'mem-fs';
 import FileEditor from 'mem-fs-editor';
-import fs from 'fs';
+import fs from 'fs-extra';
 import { exec } from 'child_process';
 import File from 'vinyl';
 
 
 export default class Inception {
-  constructor() {
+  constructor(path) {
     this.fs = FileEditor.create(memFs.create());
+    this.path = path;
+    if (!fs.existsSync(this.path)) {
+      fs.mkdir(this.path);
+    }
   }
 
   copyPackageJson(src, dst, context) {
@@ -15,8 +19,10 @@ export default class Inception {
     fs.writeFile(dst, this.fs.read(dst));
   }
 
-  cleanFixtures(path) {
-    fs.rmdirSync(path);
+  clean() {
+    if (fs.existsSync(this.path)) {
+      fs.removeSync(this.path);
+    }
   }
 
   symlinkAsync(target, path) {
@@ -30,12 +36,12 @@ export default class Inception {
     });
   }
 
-  npmInstall(path, silent = true) {
-    return this.runAsyncCommand('npm install', { cwd: path }, silent);
+  npmInstall(silent = true) {
+    return this.runAsyncCommand('npm install', { cwd: this.path }, silent);
   }
 
-  yarnInstall(path, silent = true) {
-    return this.runAsyncCommand('yarn install', { cwd: path }, silent);
+  yarnInstall(silent = true) {
+    return this.runAsyncCommand('yarn install', { cwd: this.path }, silent);
   }
 
   runAsyncCommand(command, opt = {}, silent = true, maxBuffer = 1024 * 500) {

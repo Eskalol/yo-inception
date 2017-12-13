@@ -4,10 +4,9 @@ import path from 'path';
 import fs from 'fs';
 chai.use(require('chai-as-promised'));
 
-
-describe('copy package json template', () => {
+describe('yarn install', () => {
   let inception;
-  before(() => {
+  before(done => {
     inception = new Inception(path.join(__dirname, 'fixtures'));
     inception.copyPackageJson(
       path.join(__dirname, '_package.json'),
@@ -18,14 +17,17 @@ describe('copy package json template', () => {
         express: true
       }
     );
+    inception.yarnInstall(false)
+      .then(done)
+      .catch(err => {
+        console.log(err);
+        done();
+      });
   });
   it('should copy package corectly', () => {
-    let fs = inception.getFs();
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('express');
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('super-cool-name');
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('a really cool author');
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('cool description');
-    expect(fs.exists(path.join(__dirname, 'fixtures/package.json'))).to.be.true;
+    fs.exists(path.join(__dirname, 'fixtures/node_modules/express'), exists => {
+      expect(exists).to.be.true;
+    });
   });
 
   after(() => {
