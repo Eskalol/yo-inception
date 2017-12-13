@@ -1,7 +1,7 @@
 {
   "name": "yo-inception",
   "version": "1.0.0",
-  "description": "Test library to run commands on generated code within a yeoman generator.",
+  "description": "Library to run commands on generated code within a yeoman generator.",
   "main": "dist/index.js",
   "scripts": {
     "dev": "babel-watch src",
