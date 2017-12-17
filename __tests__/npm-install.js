@@ -23,7 +23,7 @@ describe('npm install', () => {
       .catch(err => {
         done();
       });
-  }, 60000);
+  }, 120000);
 
   it('should copy package corectly', () => {
     expect(fs.pathExists(path.join(__dirname, 'tempDir2/node_modules/express'))).to.eventually.be.true;

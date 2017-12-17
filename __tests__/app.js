@@ -23,7 +23,7 @@ describe('yeoman generator test', () => {
         done();
       });
 
-  }, 60000);
+  }, 120000);
 
   it('should have installed correct deps', () => {
     expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/chai'))).to.be.true;
@@ -39,7 +39,7 @@ describe('yeoman generator test', () => {
         expect(code).to.equal(0);
         done();
       });
-  }, 60000);
+  }, 120000);
 
   it('should fail', done => {
     inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true })
@@ -48,7 +48,7 @@ describe('yeoman generator test', () => {
         expect(code).to.equal(1);
         done();
       });
-  }, 60000);
+  }, 120000);
 
   afterAll(() => {
     inception.clean();
