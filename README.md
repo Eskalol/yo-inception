@@ -85,7 +85,7 @@ describe('run generated tests', () => {
 [travis-url]: https://travis-ci.org/Eskalol/yo-inception
 [codecov-url]: https://codecov.io/gh/Eskalol/yo-inception
 [codecov-image]: https://img.shields.io/codecov/c/github/Eskalol/yo-inception.svg?style=flat-square
-[daviddm-image]: http://img.shields.io/david/github/Eskalol/yo-inception.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/github/Eskalol/yo-inception
-[daviddm-dev-url]: https://david-dm.org/github/Eskalol/yo-inception?type=dev
-[daviddm-dev-image]: https://img.shields.io/david/dev/github/Eskalol/yo-inception.svg?style=flat-square
+[daviddm-image]: http://img.shields.io/david/Eskalol/yo-inception.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/Eskalol/yo-inception
+[daviddm-dev-url]: https://david-dm.org/Eskalol/yo-inception?type=dev
+[daviddm-dev-image]: https://img.shields.io/david/dev/Eskalol/yo-inception.svg?style=flat-square
