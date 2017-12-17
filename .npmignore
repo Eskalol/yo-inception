@@ -1,7 +1,7 @@
 .travis.yml
 __tests__
+testapp
 .gitignore
-.yo-rc.json
 .editorconfig
 .eslintignore
 .gitattributes

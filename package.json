@@ -10,7 +10,7 @@
     "lint": "eslint lib/*.js",
     "lint:fix": "eslint --fix lib/*.js",
     "jest": "jest __tests__/*.js",
-    "test": "npm run jest"
+    "test": "npm run lint && npm run jest"
   },
   "repository": {
     "type": "git",
