@@ -22,7 +22,7 @@ describe('yeoman generator test', () => {
         done();
       });
 
-  }, 20000);
+  }, 60000);
 
   it('should have installed correct deps', () => {
     expect(fs.pathExistsSync(path.join(__dirname, 'fixtures1/node_modules/chai'))).to.be.true;

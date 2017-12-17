@@ -23,7 +23,7 @@ describe('yarn install', () => {
       .catch(err => {
         done();
       });
-  }, 20000);
+  }, 60000);
 
   it('should copy package corectly', () => {
     expect(fs.pathExists(path.join(__dirname, 'fixtures3/node_modules/express'))).to.eventually.be.true;
