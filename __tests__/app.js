@@ -39,7 +39,7 @@ describe('yeoman generator test', () => {
         expect(code).to.equal(0);
         done();
       });
-  }, 10000);
+  }, 60000);
 
   it('should fail', done => {
     inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true })
@@ -48,7 +48,7 @@ describe('yeoman generator test', () => {
         expect(code).to.equal(1);
         done();
       });
-  }, 10000);
+  }, 60000);
 
   afterAll(() => {
     inception.clean();
