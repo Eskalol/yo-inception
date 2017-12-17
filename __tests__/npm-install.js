@@ -7,8 +7,9 @@ chai.use(require('chai-as-promised'));
 
 describe('npm install', () => {
   let inception;
+
   beforeAll(done => {
-    inception = new Inception(path.join(__dirname, 'fixtures2'));
+    inception = new Inception(path.join(__dirname, 'tempDir2'));
     inception.copyPackageJson(
       path.join(__dirname, '_package.json'), {
         name: 'super-cool-name',
@@ -23,8 +24,9 @@ describe('npm install', () => {
         done();
       });
   }, 60000);
+
   it('should copy package corectly', () => {
-    expect(fs.pathExists(path.join(__dirname, 'fixtures2/node_modules/express'))).to.eventually.be.true;
+    expect(fs.pathExists(path.join(__dirname, 'tempDir2/node_modules/express'))).to.eventually.be.true;
   });
 
   afterAll(() => {

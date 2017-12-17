@@ -8,8 +8,9 @@ chai.use(require('chai-as-promised'));
 
 describe('copy package json template', () => {
   let inception;
+
   beforeAll(() => {
-    inception = new Inception(path.join(__dirname, 'fixtures'));
+    inception = new Inception(path.join(__dirname, 'tempDir0'));
     inception.copyPackageJson(
       path.join(__dirname, '_package.json'), {
         name: 'super-cool-name',
@@ -19,13 +20,14 @@ describe('copy package json template', () => {
       }
     );
   });
+
   it('should copy package corectly', () => {
     let fs = inception.getFs();
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('express');
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('super-cool-name');
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('a really cool author');
-    expect(fs.read(path.join(__dirname, 'fixtures/package.json'))).to.include('cool description');
-    expect(fs.exists(path.join(__dirname, 'fixtures/package.json'))).to.be.true;
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('express');
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('super-cool-name');
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('a really cool author');
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('cool description');
+    expect(fs.exists(path.join(__dirname, 'tempDir0/package.json'))).to.be.true;
   });
 
   afterAll(() => {
