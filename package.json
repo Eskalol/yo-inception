@@ -7,8 +7,8 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "lint": "eslint src/*.js",
-    "lint:fix": "eslint --fix src/*.js",
+    "lint": "eslint lib/*.js",
+    "lint:fix": "eslint --fix lib/*.js",
     "jest": "jest __tests__/*.js",
     "test": "npm run jest"
   },

@@ -32,8 +32,7 @@ describe('yeoman generator test', () => {
   });
 
   it('should pass', done => {
-
-    inception.run(path.join(__dirname, '../testapp'), { someAnswer: true })
+    inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true })
       .then(() => inception.runAsyncCommand('npm run test-pass'))
       .then(code => {
         expect(code).to.equal(0);
@@ -42,7 +41,7 @@ describe('yeoman generator test', () => {
   }, 10000);
 
   it('should fail', done => {
-    inception.run(path.join(__dirname, '../testapp'), { someAnswer: true })
+    inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true })
       .then(() => inception.runAsyncCommand('npm run test-fail'))
       .catch(code => {
         expect(code).to.equal(1);

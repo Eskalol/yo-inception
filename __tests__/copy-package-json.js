@@ -11,8 +11,7 @@ describe('copy package json template', () => {
   beforeAll(() => {
     inception = new Inception(path.join(__dirname, 'fixtures'));
     inception.copyPackageJson(
-      path.join(__dirname, '_package.json'),
-      path.join(__dirname, 'fixtures/package.json'), {
+      path.join(__dirname, '_package.json'), {
         name: 'super-cool-name',
         author: 'a really cool author',
         description: 'cool description',

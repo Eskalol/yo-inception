@@ -10,8 +10,7 @@ describe('npm install', () => {
   beforeAll(done => {
     inception = new Inception(path.join(__dirname, 'fixtures2'));
     inception.copyPackageJson(
-      path.join(__dirname, '_package.json'),
-      path.join(__dirname, 'fixtures2/package.json'), {
+      path.join(__dirname, '_package.json'), {
         name: 'super-cool-name',
         author: 'a really cool author',
         description: 'cool description',
