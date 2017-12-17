@@ -3,6 +3,8 @@
 
 
 # Examples
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Eskalol/yo-inception.svg)](https://greenkeeper.io/)
 > More examples coming soon...
 
 ## Copy and process package.json into tempDir
