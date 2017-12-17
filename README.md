@@ -1,4 +1,4 @@
-[![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url]
+[![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![dependencies Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]
 > Imagine if you could run your generated tests within your yeoman generator tests, just as simple as dreaming within a dream... Lol
 
 
@@ -85,3 +85,7 @@ describe('run generated tests', () => {
 [travis-url]: https://travis-ci.org/Eskalol/yo-inception
 [codecov-url]: https://codecov.io/gh/Eskalol/yo-inception
 [codecov-image]: https://img.shields.io/codecov/c/github/Eskalol/yo-inception.svg?style=flat-square
+[daviddm-image]: http://img.shields.io/david/github/Eskalol/yo-inception.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/github/Eskalol/yo-inception
+[daviddm-dev-url]: https://david-dm.org/github/Eskalol/yo-inception?type=dev
+[daviddm-dev-image]: https://img.shields.io/david/dev/github/Eskalol/yo-inception.svg?style=flat-square
