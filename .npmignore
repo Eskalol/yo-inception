@@ -3,6 +3,7 @@ __tests__
 testapp
 .gitignore
 .editorconfig
+coverage
 .eslintignore
 .gitattributes
 .nyc_output
