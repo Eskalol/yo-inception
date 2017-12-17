@@ -1,6 +1,10 @@
 [![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![dependencies Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]
 > Imagine if you could run your generated tests within your yeoman generator tests, just as simple as dreaming within a dream... Lol
 
+# Install
+```bash
+$ npm install --save-dev yo-inception
+```
 
 # Examples
 > More examples coming soon...
