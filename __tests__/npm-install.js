@@ -1,36 +1,34 @@
-import chai, { expect } from 'chai';
-import Inception from '../dist';
-import path from 'path';
-import fs from 'fs';
+const chai = require('chai');
+const expect = chai.expect;
+const path = require('path');
+const fs = require('fs-extra');
+const Inception = require('../lib');
 chai.use(require('chai-as-promised'));
 
 describe('npm install', () => {
   let inception;
-  before(done => {
-    inception = new Inception(path.join(__dirname, 'fixtures'));
+  beforeAll(done => {
+    inception = new Inception(path.join(__dirname, 'fixtures2'));
     inception.copyPackageJson(
       path.join(__dirname, '_package.json'),
-      path.join(__dirname, 'fixtures/package.json'), {
+      path.join(__dirname, 'fixtures2/package.json'), {
         name: 'super-cool-name',
         author: 'a really cool author',
         description: 'cool description',
         express: true
       }
     );
-    inception.npmInstall(false)
+    inception.npmInstall()
       .then(done)
       .catch(err => {
-        console.log(err);
         done();
       });
-  });
+  }, 10000);
   it('should copy package corectly', () => {
-    fs.exists(path.join(__dirname, 'fixtures/node_modules/express'), exists => {
-      expect(exists).to.be.true;
-    });
+    expect(fs.pathExists(path.join(__dirname, 'fixtures2/node_modules/express'))).to.eventually.be.true;
   });
 
-  after(() => {
+  afterAll(() => {
     inception.clean();
   });
 });

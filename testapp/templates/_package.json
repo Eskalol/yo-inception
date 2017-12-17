@@ -1,0 +1,30 @@
+{
+  "name": "lulz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-pass": "mocha test/pass.js --compilers js:babel-core/register -R spec --timeout 5000",
+    "test-fail": "mocha test/fail.js --compilers js:babel-core/register -R spec --timeout 5000"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^4.0.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-core": "^6.24.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  }
+}

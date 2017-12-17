@@ -1,6 +1,5 @@
 .travis.yml
-test
-src
+__tests__
 .gitignore
 .yo-rc.json
 .editorconfig

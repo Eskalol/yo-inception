@@ -1,13 +1,14 @@
-import chai, { expect } from 'chai';
-import Inception from '../dist';
-import path from 'path';
-import fs from 'fs';
+const chai = require('chai');
+const expect = chai.expect;
+const path = require('path');
+const fs = require('fs-extra');
+const Inception = require('../lib');
 chai.use(require('chai-as-promised'));
 
 
 describe('copy package json template', () => {
   let inception;
-  before(() => {
+  beforeAll(() => {
     inception = new Inception(path.join(__dirname, 'fixtures'));
     inception.copyPackageJson(
       path.join(__dirname, '_package.json'),
@@ -28,7 +29,7 @@ describe('copy package json template', () => {
     expect(fs.exists(path.join(__dirname, 'fixtures/package.json'))).to.be.true;
   });
 
-  after(() => {
+  afterAll(() => {
     inception.clean();
   });
 });
