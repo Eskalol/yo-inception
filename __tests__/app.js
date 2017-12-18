@@ -1,9 +1,6 @@
-const chai = require('chai');
-const expect = chai.expect;
 const Inception = require('../lib');
 const path = require('path');
 const fs = require('fs-extra');
-chai.use(require('chai-as-promised'));
 
 describe('yeoman generator test', () => {
   let inception;
@@ -17,37 +14,25 @@ describe('yeoman generator test', () => {
       }
     );
     return inception.npmInstall(true)
-      .then(done)
-      .catch(err => {
-        console.log(err);
-        done();
-      });
-
+      .then(() => inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true }))
+      .then(() => done())
+      .catch(err => done());
   }, 120000);
 
   it('should have installed correct deps', () => {
-    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/chai'))).to.be.true;
-    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/chai-as-promised'))).to.be.true;
-    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/babel-plugin-transform-runtime'))).to.be.true;
-    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/babel-core'))).to.be.true;
+
+    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/chai'))).toBeTruthy();
+    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/chai-as-promised'))).toBeTruthy();
+    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/babel-plugin-transform-runtime'))).toBeTruthy();
+    expect(fs.pathExistsSync(path.join(__dirname, 'tempDir1/node_modules/babel-core'))).toBeTruthy();
   });
 
-  it('should pass', done => {
-    inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true })
-      .then(() => inception.runAsyncCommand('npm run test-pass'))
-      .then(code => {
-        expect(code).to.equal(0);
-        done();
-      });
+  it('should pass', async () => {
+    await expect(inception.runAsyncCommand('npm run test-pass')).resolves.toBe(0);
   }, 120000);
 
-  it('should fail', done => {
-    inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true })
-      .then(() => inception.runAsyncCommand('npm run test-fail'))
-      .catch(code => {
-        expect(code).to.equal(1);
-        done();
-      });
+  it('should fail', async () => {
+    await expect(inception.runAsyncCommand('npm run test-fail')).rejects.toBe(1);
   }, 120000);
 
   afterAll(() => {
