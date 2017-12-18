@@ -21,8 +21,7 @@ describe('run generated tests', () => {
   beforeAll(done => {
     inception = new Inception(path.join(__dirname, 'tempDir'));
     inception.copyPackageJson(
-      path.join(__dirname, '../testapp/templates/_package.json'),
-      path.join(__dirname, 'tempDir1/package.json'), {
+      path.join(__dirname, '../path/to/generator/templates/_package.json'), {
         someAnswer: true
       }
     );
