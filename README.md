@@ -48,7 +48,7 @@ const inception = new Inception(path.join(__dirname, 'tempDir');
 inception.clean(); // removes tempDir
 ```
 
-## Jasmine Example
+## Jest Example
 ```javascript
 describe('run generated tests', () => {
   let inception;
@@ -61,22 +61,13 @@ describe('run generated tests', () => {
         someAnswer: true
       }
     );
-    return inception.npmInstall(true)
-      .then(done)
-      .catch(err => {
-        console.log(err);
-        done();
-      });
-
+    return inception.npmInstall()
+      .then(() => inception.runGen(path.join(__dirname, '../path/to/generator'), { someAnswer: true }))
+      .then(() => done());
   });
 
-  it('should pass', done => {
-    inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true })
-      .then(() => inception.runAsyncCommand('npm run test-pass'))
-      .then(code => {
-        expect(code).to.equal(0);
-        done();
-      });
+  it('should pass', async () => {
+      await expect(inception.runAsyncCommand('npm run test-pass')).resolves.toBe(0);
   });
 
   afterAll(() => {
