@@ -17,7 +17,7 @@ describe('yeoman generator test', () => {
       .then(() => inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true }))
       .then(() => done())
       .catch(err => done());
-  }, 120000);
+  }, 200000);
 
   it('should have installed correct deps', () => {
 
@@ -29,11 +29,11 @@ describe('yeoman generator test', () => {
 
   it('should pass', async () => {
     await expect(inception.runAsyncCommand('npm run test-pass')).resolves.toBe(0);
-  }, 120000);
+  }, 200000);
 
   it('should fail', async () => {
     await expect(inception.runAsyncCommand('npm run test-fail')).rejects.toBe(1);
-  }, 120000);
+  }, 200000);
 
   afterAll(() => {
     inception.clean();
