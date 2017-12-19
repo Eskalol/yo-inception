@@ -1,10 +1,6 @@
-const chai = require('chai');
-const expect = chai.expect;
 const path = require('path');
 const fs = require('fs-extra');
 const Inception = require('../lib');
-chai.use(require('chai-as-promised'));
-
 
 describe('copy package json template', () => {
   let inception;
@@ -23,11 +19,11 @@ describe('copy package json template', () => {
 
   it('should copy package corectly', () => {
     let fs = inception.getFs();
-    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('express');
-    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('super-cool-name');
-    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('a really cool author');
-    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).to.include('cool description');
-    expect(fs.exists(path.join(__dirname, 'tempDir0/package.json'))).to.be.true;
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).toContain('express');
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).toContain('super-cool-name');
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).toContain('a really cool author');
+    expect(fs.read(path.join(__dirname, 'tempDir0/package.json'))).toContain('cool description');
+    expect(fs.exists(path.join(__dirname, 'tempDir0/package.json'))).toBeTruthy();
   });
 
   afterAll(() => {

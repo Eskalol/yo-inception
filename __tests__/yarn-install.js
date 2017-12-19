@@ -1,9 +1,6 @@
-const chai = require('chai');
-const expect = chai.expect;
 const path = require('path');
 const fs = require('fs-extra');
 const Inception = require('../lib');
-chai.use(require('chai-as-promised'));
 
 describe('yarn install', () => {
   let inception;
@@ -18,15 +15,13 @@ describe('yarn install', () => {
         express: true
       }
     );
-    inception.yarnInstall(false)
-      .then(done)
-      .catch(err => {
-        done();
-      });
+    return inception.yarnInstall(false)
+      .then(() => done())
+      .catch(() => done());
   }, 120000);
 
   it('should copy package corectly', () => {
-    expect(fs.pathExists(path.join(__dirname, 'tempDir3/node_modules/express'))).to.eventually.be.true;
+    expect(fs.pathExists(path.join(__dirname, 'tempDir3/node_modules/express'))).toBeTruthy();
   });
 
   afterAll(() => {

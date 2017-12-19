@@ -4,6 +4,10 @@ testapp
 .gitignore
 .editorconfig
 coverage
+.eslintrc.js
+.idea
+.DS_Store
+.git
 .eslintignore
 .gitattributes
 .nyc_output

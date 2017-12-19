@@ -1,7 +1,7 @@
 {
   "name": "yo-inception",
-  "version": "1.0.0",
-  "description": "Library to run commands on generated code within a yeoman generator.",
+  "version": "0.2.0",
+  "description": "Library to run commands on generated code within yeoman generator tests",
   "main": "lib/index.js",
   "jest": {
     "coverageDirectory": "./coverage/",
@@ -13,7 +13,9 @@
     "lint:fix": "eslint --fix lib/*.js",
     "jest": "jest __tests__/*.js",
     "test": "npm run lint && npm run jest",
-    "coverage": "codecov"
+    "coverage": "codecov",
+    "prepublish": "nsp check && npm run lint && npm test",
+    "precommit": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -33,15 +35,15 @@
   },
   "homepage": "https://github.com/Eskalol/yo-inception#readme",
   "devDependencies": {
-    "chai": "^4.1.2",
-    "chai-as-promised": "^7.1.1",
     "chalk": "^2.1.0",
     "codecov": "^3.0.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.7.0",
+    "husky": "^0.14.3",
     "jest": "^21.0.0",
     "jest-cli": "^21.0.0",
+    "nsp": "^3.1.0",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
