@@ -1,4 +1,4 @@
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![dependencies Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Greenkeeper badge](https://badges.greenkeeper.io/Eskalol/yo-inception.svg)](https://greenkeeper.io/) [![codecov][codecov-image]][codecov-url] [![dependencies Status][daviddm-image]][daviddm-url] [![devDependencies Status][daviddm-dev-image]][daviddm-dev-url]
 > Imagine if you could run your generated tests within your yeoman generator tests, just as simple as dreaming within a dream... Lol
 
 # Install
@@ -10,7 +10,7 @@ or
 $ yarn add --dev yo-inception
 ```
 
-## Examples
+# Examples
 > More examples coming soon...
 
 ### Jest Example
