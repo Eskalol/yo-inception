@@ -1,6 +1,6 @@
 {
   "name": "yo-inception",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Library to run commands on generated code within yeoman generator tests",
   "main": "lib/index.js",
   "jest": {
@@ -51,7 +51,7 @@
     "fs-extra": "^5.0.0",
     "mem-fs": "^1.1.3",
     "mem-fs-editor": "^3.0.2",
-    "yeoman-test": "^1.7.0",
-    "yeoman-assert": "^3.1.0"
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
   }
 }
