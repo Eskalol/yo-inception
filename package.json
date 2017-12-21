@@ -1,6 +1,6 @@
 {
   "name": "yo-inception",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Library to run commands on generated code within yeoman generator tests",
   "main": "lib/index.js",
   "jest": {
