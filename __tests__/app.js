@@ -13,7 +13,7 @@ describe('yeoman generator test', () => {
         someAnswer: true
       }
     );
-    return inception.npmInstall(true)
+    return inception.npmInstall()
       .then(() => inception.runGen(path.join(__dirname, '../testapp'), { someAnswer: true }))
       .then(() => done())
       .catch(err => done());
@@ -28,11 +28,11 @@ describe('yeoman generator test', () => {
   });
 
   it('should pass', async () => {
-    await expect(inception.runAsyncCommand('npm run test-pass')).resolves.toBe(0);
+    await expect(inception.runAsyncCommand('npm', ['run', 'test-pass'])).resolves.toBe(0);
   }, 200000);
 
   it('should fail', async () => {
-    await expect(inception.runAsyncCommand('npm run test-fail')).rejects.toBe(1);
+    await expect(inception.runAsyncCommand('npm', ['run', 'test-fail'])).rejects.toBe(1);
   }, 200000);
 
   afterAll(() => {

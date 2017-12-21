@@ -31,7 +31,7 @@ describe('run generated tests', () => {
   });
 
   it('should pass', async () => {
-      await expect(inception.runAsyncCommand('npm run test-pass')).resolves.toBe(0);
+      await expect(inception.runAsyncCommand('npm', ['run', 'test-pass'])).resolves.toBe(0);
   });
 
   afterAll(() => {
@@ -68,7 +68,7 @@ const Inception = require('yo-inception');
 const path = require('path');
 const inception = new Inception(path.join(__dirname, 'tempDir');
 inception.runGen(path.join(__dirname, '../path/to/gen'), { someAnswer: true })
-  .then(() => inception.runAsyncCommand('gulp test'));
+  .then(() => inception.runAsyncCommand(['gulp'], ['test']));
 ```
 
 ### Clean TempDir
